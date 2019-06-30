@@ -1,0 +1,51 @@
+<form class="form-inline">
+	<input name="searchInput" class="form-control" placeholder="Search for Lastname" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+	<button class="btn tbn-outlint-primary bg-lila" (click)="searchText">x</button>
+</form> <hr>
+
+<h5 class="bg-brown text-white">Important Numbers</h5>
+<table class="table table-sm bg-brown text-white">
+        
+        <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th></th>
+        </thead>
+
+        <ng-container *ngFor="let phone of phoneArray">
+                <tr class="table bg-gray text-lila" *ngIf="filterCondition(phone) || filterCondition1(phone)">
+                        <td>{{phone.firstName}}</td>
+                        <td>{{phone.lastName}}</td>
+                        <td>{{phone.phone}}</td>
+                        <td>
+                                <button class="btn bg-blue" (click)="phonebookService.populateForm(phone)">Edit</button>
+                                <button class="btn bg-orange" (click)="onDelete(phone.$key)">Delete</button>
+                        </td>
+                </tr>
+        </ng-container>
+</table>
+
+<h5 class="bg-lila text-white">Contacts</h5>
+<table class="table table-sm bg-lila text-white">
+        
+        <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th></th>
+        </thead>
+
+        <ng-container *ngFor="let phone of phoneArray">
+                <tr class="table bg-gray text-lila" *ngIf="filterCondition(phone) || filterCondition1(phone)">
+                        <td>{{phone.firstName}}</td>
+                        <td>{{phone.lastName}}</td>
+                        <td>{{phone.phone}}</td>
+                        <td>
+                                <button class="btn bg-blue" (click)="phonebookService.populateForm(phone)">Edit</button>
+                                <button class="btn bg-orange" (click)="onDelete(phone.$key)">Delete</button>
+                        </td>
+                </tr>
+        </ng-container>
+</table>
+<div class="alert alert-danger" *ngIf="showDeletedMessage">Deleted successfully</div>

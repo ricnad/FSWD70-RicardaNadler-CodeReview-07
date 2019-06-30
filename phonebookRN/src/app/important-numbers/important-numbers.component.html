@@ -1,0 +1,20 @@
+<div class="container-fluid p-4">
+
+<h3 class="text-orange">Important Numbers</h3>
+
+<table class="table table-sm bg-lila text-white">
+        <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+        </thead>
+
+        <ng-container *ngFor="let important of inumberArray">
+                <tr class="table bg-gray text-lila">
+                        <td>{{important.firstname}}</td>
+                        <td>{{important.lastname}}</td>
+                        <td>{{important.pnumber}}</td>
+                </tr>
+        </ng-container>
+</table>
+</div>
